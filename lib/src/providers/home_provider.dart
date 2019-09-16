@@ -5,7 +5,9 @@ import 'package:sample_todo/src/services/todo_service.dart';
 class HomeProvider extends ChangeNotifier {
   TodoService todoService;
 
-  HomeProvider({@required this.todoService});
+  HomeProvider({@required this.todoService}){
+    fetchMoreTodo();
+  }
 
   // status of loading pagination or not
   bool _isFetching = false;

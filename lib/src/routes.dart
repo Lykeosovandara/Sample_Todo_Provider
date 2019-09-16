@@ -8,15 +8,7 @@ import 'services/todo_service.dart';
 Route generatedRoutes(RouteSettings settings) {
   if (settings.name == '/') {
     return MaterialPageRoute(builder: (BuildContext context) {
-      return ChangeNotifierProxyProvider<TodoService, HomeProvider>(
-        initialBuilder: null,
-        builder: (context, TodoService todoService, homeProvider) {
-          return HomeProvider(
-            todoService: todoService,
-          );
-        },
-        child: Home(),
-      );
+      return Home();
     });
   }
 

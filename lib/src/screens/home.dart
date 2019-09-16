@@ -1,14 +1,14 @@
-import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sample_todo/src/providers/home_provider.dart';
+import 'package:sample_todo/src/widgets/drawer.dart';
 
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with AfterLayoutMixin {
+class _HomeState extends State<Home>  {
   ScrollController _scrollController;
 
   @override
@@ -23,6 +23,7 @@ class _HomeState extends State<Home> with AfterLayoutMixin {
       appBar: AppBar(
         title: Text('Home'),
       ),
+      drawer: DrawerWidget(),
       body: Consumer<HomeProvider>(
         builder: (BuildContext context, HomeProvider homeProvider, _) {
           if (homeProvider.todos.length == 0) {
@@ -71,11 +72,5 @@ class _HomeState extends State<Home> with AfterLayoutMixin {
         !homeProvider.inFetching) {
       homeProvider.fetchMoreTodo();
     }
-  }
-
-  @override
-  void afterFirstLayout(BuildContext context) {
-    final HomeProvider homeProvider = Provider.of(context);
-    homeProvider.fetchMoreTodo();
   }
 }

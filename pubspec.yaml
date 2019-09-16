@@ -26,6 +26,7 @@ dependencies:
   # Depedency Injection
   provider: ^3.1.0
   after_layout: ^1.0.7+2
+  alice: ^0.0.13
 
 
 dev_dependencies:
