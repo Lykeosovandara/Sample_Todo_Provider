@@ -55,6 +55,10 @@ class _HomeState extends State<Home>  {
 
                 return ListTile(
                   title: Text(homeProvider.todos[index].title),
+                  trailing: Checkbox(
+                    value: homeProvider.todos[index].completed,
+                    onChanged: null,
+                  ),
                 );
               },
             ),
